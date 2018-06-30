@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout-registro :: header"></header>
+
+	<div class="container">
+
+
+		<div class="jumbotron">
+			<h1>Online Data</h1>
+		</div>
+
+		<div class="row ">
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="/images/anunciate-aqui.png"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Anuncios Disponibles</h5>
+						<p class="card-text">Necesitamos vender publicidad para que la
+							empresa pueda capitalizar con este producto.</p>
+						<a href="#" class="btn btn-primary">Anunciate Ya!</a>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9 ">
+
+				<div class="card text-white bg-dark mb-3 content text-center">
+					<div class="card-header font">Inicia Sesion</div>
+					<div class="card-body">
+						<form  th:action="@{/login}" th:object="${usuario}" method="post">
+							
+								<div class="form-group ">
+									<label for="inputUserName">Usuario o Correo</label> 
+									<input type="text" class="form-control" th:field="*{nombre}"
+										placeholder="Usuario">
+								</div>
+								<div class="form-group ">
+									<label for="inputPassword4">Clave</label> <input
+										type="password" class="form-control" th:field="*{clave}"
+										placeholder="Clave">
+								</div>
+						
+							
+
+							<button type="submit" class="btn btn-primary">Entrar</button>Olvidaste tu clave? Click <a th:href="@{/recuperar}">aqui</a>
+						</form>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

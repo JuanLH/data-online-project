@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout-registro :: header"></header>
+
+	<div class="container">
+
+
+		<div class="jumbotron">
+			<h1>Online Data</h1>
+		</div>
+
+		<div class="row ">
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="/images/anunciate-aqui.png"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Anuncios Disponibles</h5>
+						<p class="card-text">Necesitamos vender publicidad para que la
+							empresa pueda capitalizar con este producto.</p>
+						<a href="#" class="btn btn-primary">Anunciate Ya!</a>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9 ">
+
+				<div class="card text-white bg-dark mb-3 content text-center">
+					<div class="card-header font">Registrate</div>
+					<div class="card-body">
+						<form th:action="@{/guardar-usuario}" th:object="${usuario}"
+							method="post">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="inputUserName">Nombre de usuario</label> <input
+										type="text" class="form-control" th:field="*{nombre}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="Usuario"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+								</div>
+								<div class="form-group col-md-6">
+									<label for="inputPassword4">Clave</label> <input
+										type="password" class="form-control" th:field="*{clave}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="Clave"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}"></small>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail">Correo</label> <input type="email"
+									class="form-control" id="inputEmail" th:field="*{correo}"
+									th:errorclass="'form-control alert-danger'"
+									placeholder="JoeDoe@example.com"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"></small>
+							</div>
+
+							<div class="form-row">
+
+								<div class="form-group col-md-6">
+									<label for="inputBod">Fecha de Nacimiento</label> <input
+										type="text" class="form-control" th:field="*{bod}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="dd-mm-yyyy"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('bod')}" th:errors="*{bod}"></small>
+								</div>
+
+
+								<div class="form-group col-md-6 ">
+									<label class="" for="inlineFormCustomSelect">Sexo</label> <select
+										th:field="*{gender}" class="form-control "
+										id="inlineFormCustomSelect">
+										<option th:each="dropDownItem :${genders}"
+											th:value="${dropDownItem.getLetra()}" th:text="${dropDownItem.getNombre()}"></option>
+									</select>
+
+								</div>
+							</div>
+
+							<button type="submit" class="btn btn-primary">Registrarse</button>
+						</form>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

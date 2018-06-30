@@ -1,0 +1,29 @@
+
+.jumbotron{
+	margin-bottom:1em;
+	margin-top:1em;
+	background-image: url("../images/banner-dataonline.jpg");
+	backgroud-size: cover;
+	color: white;
+}
+
+.content{
+	margin-top:1em;
+}
+
+
+.font{
+	font-size: 23px;
+}
+
+.sexo{
+	margin-left: 40%;
+	margin-bottom: 10px;
+}
+.menu{
+	padding-right: 10%;
+}
+
+.firt-element{
+	padding-left: 50%;
+}
