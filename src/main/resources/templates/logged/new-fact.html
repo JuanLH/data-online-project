@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout-registro :: header"></header>
+
+	<div class="container">
+
+
+		<div class="jumbotron">
+			<h1>Online Data</h1>
+		</div>
+
+		<div class="row ">
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="/images/anunciate-aqui.png"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Anuncios Disponibles</h5>
+						<p class="card-text">Necesitamos vender publicidad para que la
+							empresa pueda capitalizar con este producto.</p>
+						<a href="#" class="btn btn-primary">Anunciate Ya!</a>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9 ">
+
+				<div class="card text-white bg-dark mb-3 content text-center">
+					<div class="card-header font">Nuevo Dato</div>
+					<div class="card-body">
+
+
+						<form th:action="@{/guardar-dato}" th:object="${dato}"
+							method="post">
+
+							<div class="form-group  ">
+								<label class="" for="inlineFormCustomSelect">Grupo</label> <select
+									th:field="*{grupoDato}" class="form-control "
+									id="inlineFormCustomSelect">
+									<option th:each="dropDownItem :${groups}"
+										th:value="${dropDownItem.getGrupo()}"
+										th:text="${dropDownItem.getGrupo()}"></option>
+								</select>
+
+							</div>
+
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="inputUserName">Dato</label> <input
+										type="text" class="form-control" th:field="*{data}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="Nombre del dato Ej:Edad"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('data')}" th:errors="*{data}"></small>
+								</div>
+								<div class="form-group col-md-6">
+									<label for="inputPassword4">Contenido</label> <input
+										type="text" class="form-control" th:field="*{contenido}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="Contenido del dato Ej: 23"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('contenido')}"
+										th:errors="*{contenido}"></small>
+								</div>
+							</div>
+							
+							<div class="form-group">
+									<label for="inputPassword4">Descripcion</label> <input
+										type="text" class="form-control" th:field="*{descripcion}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="Breve descripcion"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('descripcion')}"
+										th:errors="*{descripcion}"></small>
+								</div>
+
+
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</form>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout-registro :: header"></header>
+
+	<div class="container">
+
+
+		<div class="jumbotron">
+			<h1>Online Data</h1>
+		</div>
+
+		<div class="row ">
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="/images/anunciate-aqui.png"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Anuncios Disponibles</h5>
+						<p class="card-text">Necesitamos vender publicidad para que la
+							empresa pueda capitalizar con este producto.</p>
+						<a href="#" class="btn btn-primary">Anunciate Ya!</a>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9 ">
+
+				<div class="card text-white bg-dark mb-3 content text-center">
+					<div class="card-header font">Crear un nuevo Grupo</div>
+					<div class="card-body">
+					
+					
+						<form th:action="@{/guardar-grupo}" th:object="${grupoDato}"
+							method="post">
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="inputUserName">Nombre del Grupo</label> <input
+										type="text" class="form-control" th:field="*{grupo}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="Nombre del grupo ej:Laborales"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('grupo')}" th:errors="*{grupo}"></small>
+								</div>
+								<div class="form-group col-md-6">
+									<label for="inputPassword4">Descripcion</label> <input
+										type="text" class="form-control" th:field="*{descripcion}"
+										th:errorclass="'form-control alert-danger'"
+										placeholder="Breve descripcion"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></small>
+								</div>
+							</div>
+				
+							 <input type="text" th:field="*{usuario}" th:value="${idUsuario}" style="display:none;">
+								
+							
+
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</form>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout-logged :: head"></head>
+<body>
+	<header th:replace="layout/layout-logged :: header"></header>
+
+	<div class="container">
+
+
+		<div class="jumbotron">
+			<h1>Online Data</h1>
+		</div>
+
+		<div class="row ">
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top" src="/images/anunciate-aqui.png"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Anuncios Disponibles</h5>
+						<p class="card-text">Necesitamos vender publicidad para que la
+							empresa pueda capitalizar con este producto.</p>
+						<a href="#" class="btn btn-primary">Anunciate Ya!</a>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9 ">
+				<nav
+					class="nav navbar navbar-expand-md  navbar-dark bg-dark rounded">
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active"><a
+								class="nav-link font menu" href="/new-group">Nuevo Grupo</a></li>
+							<li class="nav-item active"><a class="nav-link font menu"
+								href="/new-fact">Nuevo Dato</a></li>
+							<li class="nav-item active "><a class="nav-link font"
+								href="#">Consultar Perfil</a></li>
+
+						</ul>
+					</div>
+				</nav>
+
+
+				<div class="card text-white bg-dark mb-3 content ">
+					<div class="card-header font">Mis Datos</div>
+					<div class="card-body">
+						<h5 class="card-title">Personales</h5>
+						<p class="card-text"> Nombre : Juan</p>
+						<p class="card-text"> Direccion : Los Reyes</p>
+						<p class="card-text"> Estado Civil : Soltero</p>
+						<h5 class="card-title">Laborales</h5>
+						<p class="card-text">Ocupacion : Estudiante</p>
+						<p class="card-text">Trabajo Actual : Ninguno</p>
+						<h5 class="card-title">Contactos</h5>
+						<p class="card-text">Telefono : 829-787-8578</p>
+						<p class="card-text">Correo : juanlhiciano.study@gmail.com</p>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
