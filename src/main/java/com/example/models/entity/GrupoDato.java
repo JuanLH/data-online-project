@@ -26,7 +26,14 @@ public class GrupoDato implements Serializable{
 	
 	public GrupoDato() {
 	}
+	
   
+	public GrupoDato(@NotNull @Size(min = 3, max = 30) String grupo, @NotNull String descripcion) {
+		this.grupo = grupo;
+		this.descripcion = descripcion;
+	}
+
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

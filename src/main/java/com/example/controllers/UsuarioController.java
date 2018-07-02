@@ -11,7 +11,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -68,7 +67,7 @@ public class UsuarioController {
 		return "redirect:/inicio-sesion";
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/home", method=RequestMethod.POST)//login
 	public String login(@ModelAttribute("usuario") Usuario usuario,Model model,HttpSession session) {
 		Usuario user = usuarioService.findByNombreAndClave(usuario.getNombre(),  usuario.getClave());
 		if(user == null) {
@@ -77,7 +76,13 @@ public class UsuarioController {
 		}
 		else {
 			session.setAttribute("nombre", usuario.getNombre());
-			return "redirect:/";
+			return "/logged/home";
 		}
+	}
+	
+	@RequestMapping(value="/logged/logout",method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.removeAttribute("nombre");
+		return "redirect:/";
 	}
 }

@@ -38,6 +38,11 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	public Usuario findByNombreAndClave(String nombre, String clave) {
 		return usuarioDao.findByNombreAndClave(nombre, clave);
 	}
+
+	@Override
+	public Usuario findByNombre(String nombre) {
+		return usuarioDao.findByNombre(nombre);
+	}
 	
 
 }

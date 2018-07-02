@@ -10,4 +10,5 @@ public interface IUsuarioService {
 	public Usuario findOne(Long id);
 	public void delete(Long id);
 	public Usuario findByNombreAndClave(String nombre,String clave);
+	public Usuario findByNombre(String nombre);
 }
