@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.models.dao.IGrupoDatoDao;
 import com.example.models.entity.GrupoDato;
+import com.example.models.entity.Usuario;
 
 @Service
 public class GrupoDatoServiceImpl implements IGrupoDatoService {
@@ -33,6 +34,11 @@ public class GrupoDatoServiceImpl implements IGrupoDatoService {
 	@Override
 	public void delete(Long id) {
 		grupoDatoDao.deleteById(id);
+	}
+
+	@Override
+	public List<GrupoDato> findByUsuario(Usuario usuario) {
+		return grupoDatoDao.findByUsuario(usuario);
 	}
 
 }

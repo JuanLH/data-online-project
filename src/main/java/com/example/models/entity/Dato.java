@@ -50,7 +50,6 @@ public class Dato implements Serializable {
 	private String descripcion;
 	
 	
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="fecha_registro")
@@ -119,6 +118,9 @@ public class Dato implements Serializable {
 		this.fechaRegistro = fechaRegistro;
 	}
 	
+	public String toString() {
+		return "Data:"+this.getData()+",Contenido:"+this.getContenido()+",Descripcion:"+this.getDescripcion();
+	}
 	
 	
 }

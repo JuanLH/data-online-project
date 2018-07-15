@@ -57,7 +57,7 @@ public class Usuario implements Serializable {
 	
 
 	@NotEmpty
-    @Size(min=4,max=50)
+    @Size(min=6,max=50)
 	private String clave;
 	
 	@NotNull

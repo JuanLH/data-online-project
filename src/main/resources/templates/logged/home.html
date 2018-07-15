@@ -38,8 +38,8 @@
 
 					<div class="collapse navbar-collapse">
 						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active"><a
-								class="nav-link font menu" href="/new-group">Nuevo Grupo</a></li>
+							<li class="nav-item active"><a class="nav-link font menu"
+								href="/new-group">Nuevo Grupo</a></li>
 							<li class="nav-item active"><a class="nav-link font menu"
 								href="/new-fact">Nuevo Dato</a></li>
 							<li class="nav-item active "><a class="nav-link font"
@@ -53,7 +53,23 @@
 				<div class="card text-white bg-dark mb-3 content ">
 					<div class="card-header font">Mis Datos</div>
 					<div class="card-body">
-						<h5 class="card-title">Personales</h5>
+
+						<table>
+							<span th:each="group : ${grupoList}" >
+							<h3 th:text="${group.getGrupo()}"></h3>
+							<td>
+								<tr th:each="dato: ${group.getDatos()}" >
+								<div class="logo">
+									<p th:text="${dato.getData()}"></p> : <p th:text="${dato.getContenido()}"></p>  
+									<a th:href="@{/eliminar-dato/} + ${dato.getId()}"> <img src="/images/delete.png" height="22" width="22"></a> 
+								</div>
+								</tr>
+							</td>
+							</span>
+						</table>
+
+
+						<!-- <h5 class="card-title">Personales</h5>
 						<p class="card-text"> Nombre : Juan</p>
 						<p class="card-text"> Direccion : Los Reyes</p>
 						<p class="card-text"> Estado Civil : Soltero</p>
@@ -62,8 +78,10 @@
 						<p class="card-text">Trabajo Actual : Ninguno</p>
 						<h5 class="card-title">Contactos</h5>
 						<p class="card-text">Telefono : 829-787-8578</p>
-						<p class="card-text">Correo : juanlhiciano.study@gmail.com</p>
+						<p class="card-text">Correo : juanlhiciano.study@gmail.com</p> -->
 					</div>
+
+
 				</div>
 
 
