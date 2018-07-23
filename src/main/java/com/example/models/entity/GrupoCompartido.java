@@ -30,8 +30,6 @@ public class GrupoCompartido implements Serializable{
 	private GrupoDato grupoDato;
 
 	
-	
-	
 	public Long getId() {
 		return id;
 	}

@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.models.entity.Visita;
 
 public interface IVisitaDao extends CrudRepository<Visita, Long> {
-
+	public Visita findByClave(String clave);
 }

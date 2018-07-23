@@ -20,6 +20,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.models.entity.Gender;
+import com.example.models.entity.GrupoDato;
 import com.example.models.entity.Usuario;
 import com.example.models.service.IUsuarioService;
 
@@ -76,6 +77,12 @@ public class UsuarioController {
 		}
 		else {
 			session.setAttribute("nombre", usuario.getNombre());
+			List<GrupoDato> grupos =  usuarioService.
+					findByNombre((String)session.getAttribute("nombre")).getGruposDatos();
+			model.addAttribute("grupoList",grupos);
+			for(GrupoDato g:grupos) {
+				System.out.println(g.getDescripcion());
+			}
 			return "/logged/home";
 		}
 	}

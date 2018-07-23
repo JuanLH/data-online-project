@@ -203,6 +203,10 @@ public class Usuario implements Serializable {
 		this.visitas = visitas;
 	}
 	
+	@Override
+	public String toString() {
+		return nombre+" - "+id;
+	}
 	
 	
 }

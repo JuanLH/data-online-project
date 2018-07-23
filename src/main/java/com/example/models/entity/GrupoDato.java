@@ -49,6 +49,8 @@ public class GrupoDato implements Serializable{
 	@NotNull
 	private String descripcion;
 	
+	
+	
 	@OneToMany(mappedBy = "grupoDato",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Dato> datos;
 	
@@ -112,6 +114,9 @@ public class GrupoDato implements Serializable{
 	public void setGruposCompartidos(List<GrupoCompartido> gruposCompartidos) {
 		this.gruposCompartidos = gruposCompartidos;
 	}
+
+
+	
 	
 	
 	

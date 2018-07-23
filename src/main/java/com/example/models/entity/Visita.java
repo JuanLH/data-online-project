@@ -13,7 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,16 +31,21 @@ public class Visita implements Serializable{
 	
 	public Visita() {
 	}
+	
+	@PrePersist
+	public void prePersist() {
+		estado = 1;//disponible 
+	}
+	
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Usuario usuario;
 	
-	//@OneToOne(fetch = FetchType.LAZY,cascade =  CascadeType.ALL, mappedBy = "id")
+	@OneToOne
 	private Usuario usuarioVisitante;
 	
 	@Temporal(TemporalType.DATE)
